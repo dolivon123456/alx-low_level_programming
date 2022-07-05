@@ -4,15 +4,21 @@
  * print_last_digit - print the last digit of a number
  * @i: integer paramater
  *
- * Return: Always 0 success
+ * Return: value of the last digit
  */
-
-int print_last_digit(int i)
+int print_last_digit(int n)
 {
-	int last_digit;
+	int a;
 
-	last_digit = abs(i) % 10;
-	_putchar('0' + last_digit);
+	if (n < 0)
+		n = -n;
 
-	return (last_digit);
+	a = n % 10;
+
+	if (a < 0)
+		a = -a;
+
+	_putchar(a + '0');
+
+	return (a);
 }
