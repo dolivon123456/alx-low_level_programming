@@ -2,6 +2,8 @@
 #include <stdlib.h>
 
 /**
+ * main - Entry point
+ *
  * print_last_digit - print the last digit of a number
  * @i: integer paramater
  *
