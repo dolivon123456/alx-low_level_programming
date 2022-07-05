@@ -2,8 +2,6 @@
 #include <stdlib.h>
 
 /**
- * main - Entry point
- *
  * print_last_digit - print the last digit of a number
  * @i: integer paramater
  *
@@ -16,5 +14,6 @@ int print_last_digit(int i)
 
 	last_digit = abs(i) % 10;
 	_putchar('0' + last_digit);
+
 	return (last_digit);
 }
