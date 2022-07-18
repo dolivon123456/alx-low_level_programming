@@ -10,7 +10,7 @@
  *
  * Return: pointer to the byte in s or NULL
  */
-char *_strpbrk(char *s, char *accept);
+char *_strpbrk(char *s, char *accept)
 {
 	int i, j;
 	char *p;
@@ -34,4 +34,6 @@ char *_strpbrk(char *s, char *accept);
 		}
 		i++;
 	}
+
+	return (0);
 }
