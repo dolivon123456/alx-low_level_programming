@@ -1,29 +1,29 @@
 #include "main.h"
-#include <stdio.h>
-#include <ctype.h>
-#include <stdlib.h>
 
 /**
- * main - multiply tow numbers
- * @argc: number of arguments
- * @argv: agument vector
- *
- * Return: Product
+ * main - multiplies two positive numbers
+ * @argc: n arguments
+ * @argv: args
+ * Return: int
  */
 int main(int argc, char *argv[])
 {
-	int a, b, mul;
-
-	if(argc!=3)
+unsigned long mul;
+int i, j;
+	if (argc != 3)
+	{ printf("Error\n");
+	exit(98); }
+	for (i = 1; i < argc; i++)
 	{
-		printf("error\n");
-		exit(98);
+		for (j = 0; argv[i][j] != '\0'; j++)
+		{
+			if (argv[i][j] > 57 || argv[i][j] < 48)
+			{  printf("Error\n");
+			exit(98); }
+		}
+
 	}
-	
-	a = atoi(argv[1]);
-	b = atoi(argv[2]);
-	mul = a * b;
-    printf("%d\n", mul);
-	
-	return (0);
+	mul = atol(argv[1]) *  atol(argv[2]);
+	printf("%lu\n", mul);
+return (0);
 }
