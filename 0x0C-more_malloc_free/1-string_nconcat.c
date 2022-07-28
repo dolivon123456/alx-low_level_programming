@@ -1,68 +1,36 @@
-#include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "main.h"
 #include <string.h>
+
 /**
- * string_nconcat - Concatenate two strings
- * @s1: string 1
- * @s2: string 2
- * @n: number of bytes to concatenate
+ * string_nconcat - concatenate the first n bytes of a string to another
+ * @str1: pointer to the first string
+ * @str2: pointer to the second string
+ * @size: size of str2 to be concatenated
  *
- * Return: pointer to newlly allocated space in memory
+ * Return: pointer to the concatenated string
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+
+char *string_nconcat(char *str1, char *str2, unsigned int size)
 {
-	unsigned int i = 0, j = 0;
+	unsigned int len1, len2;
 	char *ptr;
 
-	if (s1 == NULL || s2 == NULL)
-	{
-		if (s1 != NULL && s2 == NULL)
-		{
-			ptr = (char *) malloc(strlen(s1) * n * sizeof(char));
-			s2 = " ";
-			ptr = s1;
-		}
-		else if (s1 == NULL && s2 != NULL)
-		{
-			s1 = " ";
-			ptr = (char *) malloc(strlen(s1) * n * sizeof(char));
-			while (i != n)
-		{
-			ptr[j] = s2[i];
-			i++;
-			j++;
-		}
-		ptr[j] = '\0';
+	if (str1 == NULL)
+		str1 = "";
+	if (str2 == NULL)
+		str2 = "";
 
-		}
-		else if (s1 == NULL && s2 == NULL)
-		{
-			ptr = (char *) malloc(strlen(s1) * n * sizeof(char));
-			s1 = " ";
-			s2 = " ";
-			ptr = " ";
-		}
-		return (ptr);
-	}
-		ptr = (char *) malloc(strlen(s1) * n * sizeof(char));
-		/*Insert first string in the new string*/
-			while (s1[i] != '\0')
-			{
-				ptr[j] = s1[i];
-				i++;
-				j++;
+	len1 = strlen(str1);
+	len2 = strlen(str2) <= size ? strlen(str2) : size;
+	ptr = malloc(len1 + len2 + 1);
 
-			}
-			/*Insert second string into new string*/
-			i = 0;
-			while (i != n || i != '\0')
-			{
-				ptr[j] = s2[i];
-				i++;
-				j++;
-			}
-			ptr[j] = '\0';
+	if (ptr == NULL)
+		return (NULL);
 
-			return (ptr);
+	strcpy(ptr, str1);
+	strncat(ptr, str2, size);
+
+	return (ptr);
 }
