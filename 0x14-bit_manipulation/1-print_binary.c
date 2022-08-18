@@ -11,7 +11,7 @@ void dec2bin(unsigned long int n, char *buffer)
 	char res[32];
 	int i = 0;
 
-	while(n)
+	while (n)
 	{
 		if (n & 1)
 			res[i++] = '1';
