@@ -20,7 +20,6 @@ void dec2bin(unsigned long int n, char *buffer)
 		n >>= 1;
 	}
 	res[i--] = '\0';
-	
 	while (res[i] && i >= 0)
 	{
 		*buffer++ = res[i];
