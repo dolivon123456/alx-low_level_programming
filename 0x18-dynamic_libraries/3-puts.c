@@ -13,3 +13,5 @@ while (str[i])
 {
 	i++;
 }
+
+printf("me")
